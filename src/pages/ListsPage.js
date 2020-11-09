@@ -5,7 +5,7 @@ import {ListItem} from '../components/ListItem';
 export class ListsPage extends Component {
   state = {
     data: ['Фильмы на вечер', 'Хиты', 'Топ-10'],
-    isLoading: false,
+    isLoading: true,
   };
 
   onItemPress = (item) => {
