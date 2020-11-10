@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import * as React from 'react';
-import {Button, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {View, TouchableOpacity, Image} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -12,6 +12,7 @@ import {ListsPage} from './pages/ListsPage';
 import FavoritesPage from './pages/FavoritesPage';
 import SettingsPage from './pages/SettingsPage';
 import {ListScreen} from './screens/ListScreen';
+import {MovieScreen} from './screens/MovieScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -88,6 +89,7 @@ function listsScreenStack({navigation}) {
         }}
       />
       <Stack.Screen name={'ListScreen'} component={ListScreen} />
+      <Stack.Screen name={'MovieScreen'} component={MovieScreen} />
     </Stack.Navigator>
   );
 }

@@ -10,25 +10,34 @@ export class ListScreen extends Component {
         genres: ['Боевик', 'Триллер'],
         iconUrl: 'https://www.kino-teatr.ru/movie/posters/big/2/136612.jpg',
         id: 1,
+        releaseDate: new Date().getFullYear(),
+        tagline: 'Время уходит',
+        budget: '$500000000',
       },
       {
         name: 'Довод',
         genres: ['Боевик', 'Триллер'],
         iconUrl: 'https://www.kino-teatr.ru/movie/posters/big/2/136612.jpg',
-        id: 2,
+        id: 1,
+        releaseDate: new Date().getFullYear(),
+        tagline: 'Время уходит',
+        budget: '$500000000',
       },
       {
         name: 'Довод',
         genres: ['Боевик', 'Триллер'],
         iconUrl: 'https://www.kino-teatr.ru/movie/posters/big/2/136612.jpg',
-        id: 3,
+        id: 1,
+        releaseDate: new Date().getFullYear(),
+        tagline: 'Время уходит',
+        budget: '$500000000',
       },
     ],
     isLoading: true,
   };
 
   onItemPress = (item) => {
-    this.props.navigation.navigate('ListScreen', {list: item});
+    this.props.navigation.navigate('MovieScreen', {movie: item});
   };
 
   keyExtractor = (movie) => movie;

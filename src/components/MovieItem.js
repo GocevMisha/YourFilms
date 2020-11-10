@@ -4,7 +4,6 @@ import {StyleSheet, TouchableOpacity, Image, Text, View} from 'react-native';
 export class MovieItem extends Component {
   render = () => {
     const {onPress, movie} = this.props;
-    console.log(movie);
     return (
       <TouchableOpacity style={styles.container} onPress={onPress}>
         <Image

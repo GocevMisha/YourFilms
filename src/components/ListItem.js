@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet, TouchableOpacity, Image, Text, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 export class ListItem extends Component {
   render = () => {
     const {onPress, list} = this.props;
-
     return (
       <TouchableOpacity style={styles.container} onPress={onPress}>
         <View style={styles.col}>
