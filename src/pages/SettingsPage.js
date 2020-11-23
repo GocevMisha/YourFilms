@@ -1,7 +1,11 @@
 import * as React from 'react';
-import {Button, View, Text, SafeAreaView} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
+import FormButton from '../components/FormButton';
+import {AuthContext} from '../navigation/AuthProvider';
+import {useContext} from 'react';
 
 const SettingsPage = ({navigation}) => {
+    const { user, logout } = useContext(AuthContext);
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 1, padding: 16}}>
@@ -11,14 +15,7 @@ const SettingsPage = ({navigation}) => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text
-            style={{
-              fontSize: 25,
-              textAlign: 'center',
-              marginBottom: 16,
-            }}>
-            Settings
-          </Text>
+            <FormButton buttonTitle='Logout' onPress={() => logout()} />
         </View>
       </View>
     </SafeAreaView>
