@@ -27,7 +27,6 @@
   "devDependencies": {
     "@babel/core": "7.12.3",
     "@babel/runtime": "7.12.5",
-    "@expo/vector-icons": "^10.2.1",
     "@react-native-community/eslint-config": "1.1.0",
     "@react-native-firebase/app": "^10.0.0",
     "babel-jest": "25.5.1",

@@ -60,3 +60,5 @@ buck-out/
 
 # Project exclude paths
 /ios/
+/android/app/google-services.json
+

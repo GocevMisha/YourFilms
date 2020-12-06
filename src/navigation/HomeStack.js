@@ -61,6 +61,9 @@ function searchScreenStack({navigation}) {
                     },
                 }}
             />
+            <Stack.Screen name={'MovieScreen'}
+                          component={MovieScreen}
+                          options={({ route }) => ({ title: route.params.name })} />
         </Stack.Navigator>
     );
 }
