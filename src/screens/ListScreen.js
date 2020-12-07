@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {MovieItem} from '../components/MovieItem';
+import firestore from '@react-native-firebase/firestore';
 
 export class ListScreen extends Component {
   state = {
@@ -69,4 +70,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  actionButtonIcon: {
+    fontSize: 20,
+    color: 'white',
+  }
 });

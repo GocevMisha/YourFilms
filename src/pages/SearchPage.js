@@ -114,7 +114,7 @@ class SearchPage extends Component {
                      <SearchBar
                          round
                          icon = {{type: 'material-community', color: '#86939e', name: 'share' }}
-                         clearIcon = {{type: 'material-community', color: '#86939e', name: 'share' }}
+                         clearIcon = {{type: 'material-community', color: '#86939e', name: 'close' }}
                          onChangeText={this.onRefresh}
                          placeholder="Type Here..."
                          value={search}
