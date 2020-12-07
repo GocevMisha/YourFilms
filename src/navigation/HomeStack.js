@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, TouchableOpacity, Image} from 'react-native';
+import {View, TouchableOpacity, Image, StyleSheet, Clipboard} from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -10,6 +10,9 @@ import {FavoritesPage} from '../pages/FavoritesPage';
 import SettingsPage from '../pages/SettingsPage';
 import {ListScreen} from '../screens/ListScreen';
 import {MovieScreen} from '../screens/MovieScreen';
+import AddListScreen from '../screens/AddListScreen';
+import {AddToListScreen} from '../screens/AddToListScreen';
+import {Icon} from 'react-native-elements'
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -91,8 +94,30 @@ function listsScreenStack({navigation}) {
                     },
                 }}
             />
-            <Stack.Screen name={'ListScreen'} component={ListScreen} />
-            <Stack.Screen name={'MovieScreen'} component={MovieScreen} />
+            <Stack.Screen name={'ListScreen'}
+                          component={ListScreen}
+                          options={({ route }) => ({
+                              title: route.params.name,
+                              headerRight: () => (
+                                  <TouchableOpacity onPress={() => {
+                                      alert('List code copied to clipboard\n' + route.params.listKey)
+                                      Clipboard.setString(route.params.listKey);
+                                  }}>
+                                      <Icon
+                                          type='material-community'
+                                          name='share'
+                                          style={styles.iconRight}/>
+                                  </TouchableOpacity>
+                              ),
+                          })}
+            />
+            <Stack.Screen name={'MovieScreen'}
+                          component={MovieScreen}
+                          options={({ route }) => ({ title: route.params.name })} />
+            <Stack.Screen name={'AddListScreen'}
+                          component={AddListScreen}
+                          options={{header: () => null}}>
+            </Stack.Screen>
         </Stack.Navigator>
     );
 }
@@ -174,3 +199,19 @@ export default function HomeStack() {
             </Drawer.Navigator>
     );
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    icon: {
+        paddingLeft: 10
+    },
+    iconRight: {
+        marginRight: 10
+    },
+    iconContainer: {
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        width: 120
+    }
+});
