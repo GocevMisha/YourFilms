@@ -6,7 +6,7 @@ export class MovieSearchItem extends Component {
 
 
   render = () => {
-    const {onPress, onAddToListPress, movie} = this.props;
+    const {onPress, onAddToListPress, onAddToFavPress, movie} = this.props;
     return (
       <TouchableOpacity style={styles.container} onPress={onPress}>
         <Image
@@ -18,7 +18,15 @@ export class MovieSearchItem extends Component {
           <Text style={styles.name}
                 numberOfLines={1}
           >{getName(movie)}</Text>
-          <Button title={"Добавить в список"} onPress={onAddToListPress}/>
+
+          <View style={styles.row}>
+            <View style={styles.button}>
+              <Button style={styles.button} title={"Add to list"} onPress={onAddToListPress}/>
+            </View>
+            <View style={styles.button}>
+              <Button style={styles.button} title={"Add to favorites"} onPress={onAddToFavPress}/>
+            </View>
+          </View>
         </View>
       </TouchableOpacity>
     );
@@ -42,16 +50,26 @@ const styles = StyleSheet.create({
   },
   col: {
     flex: 1,
-    marginLeft: 20,
-    marginRight: 20,
     alignItems: 'flex-start',
     flexDirection: 'column',
+  },
+  row: {
+    flex: 1,
+    marginRight: 20,
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+  },
+  button: {
+    marginLeft: 20,
+    flex: 0.5,
   },
   name: {
     fontSize: 24,
     color: '#000000',
     marginBottom: 10,
-    marginRight: 10,
+
+    marginLeft: 20,
+    marginRight: 20,
   },
 
 });

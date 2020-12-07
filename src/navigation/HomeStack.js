@@ -6,7 +6,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import SearchPage from '../pages/SearchPage';
 import {ListsPage} from '../pages/ListsPage';
-import FavoritesPage from '../pages/FavoritesPage';
+import {FavoritesPage} from '../pages/FavoritesPage';
 import SettingsPage from '../pages/SettingsPage';
 import {ListScreen} from '../screens/ListScreen';
 import {MovieScreen} from '../screens/MovieScreen';
