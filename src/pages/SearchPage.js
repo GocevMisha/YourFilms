@@ -3,7 +3,8 @@ import {View, Text, SafeAreaView, Image, StyleSheet, TouchableOpacity, FlatList,
 
 import { SearchBar } from 'react-native-elements';
 import {Component} from 'react';
-import {MovieItem} from '../components/MovieItem';
+import {MovieSearchItem} from '../components/MovieSeacrhItem';
+import {getName} from '../utils/Util';
 
 class SearchPage extends Component {
     state = {
@@ -38,8 +39,11 @@ class SearchPage extends Component {
 
 
     onItemPress = (item) => {
+        this.props.navigation.navigate('MovieScreen', {movie_id: item.filmId, name: getName(item)});
+    };
 
-        this.props.navigation.navigate('MovieScreen', {movie_id: item.filmId, name: item.nameRu});
+    onItemAddToListPress = (item) => {
+        this.props.navigation.navigate('AddToListScreen', {movie_item: item, name: getName(item)});
     };
 
     keyExtractor = (movie) => movie.filmId;
@@ -62,7 +66,13 @@ class SearchPage extends Component {
                      <FlatList
                          data={list}
                          keyExtractor={this.keyExtractor}
-                         renderItem={({ item }) => <MovieItem movie={item} onPress={this.onItemPress.bind(this, item)} />}
+                         renderItem={({ item }) =>
+                             <MovieSearchItem
+                                 movie={item}
+                                 onPress={this.onItemPress.bind(this, item)}
+                                 onAddToListPress={this.onItemAddToListPress.bind(this, item)}
+                             />
+                         }
                      />
                  </View>
              </SafeAreaView>
@@ -72,6 +82,7 @@ class SearchPage extends Component {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: 'white',
     },
     itemStyle: {

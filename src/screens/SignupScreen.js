@@ -4,6 +4,9 @@ import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
 import {AuthContext} from '../navigation/AuthProvider';
 
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+
 export default function SignupScreen() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

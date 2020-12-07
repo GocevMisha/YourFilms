@@ -1,6 +1,7 @@
 import React, {createContext, useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import {ToastAndroid} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 /**
  * This provider is created
  * to access user in whole app
@@ -18,7 +19,7 @@ export const AuthProvider = ({children}) => {
         setUser,
         login: async (email, password) => {
           try {
-            await auth().signInWithEmailAndPassword(email, password);
+            await auth().signInWithEmailAndPassword(email, password)
           } catch (e) {
             console.log(e);
             ToastAndroid.show("Error!", ToastAndroid.SHORT);
@@ -26,7 +27,7 @@ export const AuthProvider = ({children}) => {
         },
         register: async (email, password) => {
           try {
-            await auth().createUserWithEmailAndPassword(email, password);
+            await auth().createUserWithEmailAndPassword(email, password)
           } catch (e) {
             console.log(e);
             ToastAndroid.show("Error!", ToastAndroid.SHORT);
