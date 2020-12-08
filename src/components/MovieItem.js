@@ -7,13 +7,12 @@ export class MovieItem extends Component {
     return (
       <TouchableOpacity style={styles.container} onPress={onPress}>
         <Image
-          source={{uri: movie.iconUrl}}
+          source={{uri: movie.image}}
           resizeMode={'cover'}
           style={styles.icon}
         />
         <View style={styles.col}>
           <Text style={styles.name}>{movie.name}</Text>
-          <Text style={styles.genres}>{movie.genres.join(', ')}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -35,16 +34,11 @@ const styles = StyleSheet.create({
     height: 70,
   },
   col: {
-    marginLeft: 10,
+    marginLeft: 20,
   },
   name: {
-    marginTop: 10,
-    fontSize: 20,
+    fontSize: 24,
     color: '#000000',
   },
-  genres: {
-    marginBottom: 10,
-    fontSize: 14,
-    color: '#2a2a2a',
-  },
+
 });

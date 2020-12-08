@@ -6,7 +6,7 @@ export class ListItem extends Component {
     return (
       <TouchableOpacity style={styles.container} onPress={onPress}>
         <View style={styles.col}>
-          <Text style={styles.name}>{list}</Text>
+          <Text style={styles.name}>{list.name}</Text>
         </View>
       </TouchableOpacity>
     );
